@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form with Table Output</title>
+</head>
+<body>
+  <h2>Form</h2>
+  
+  <form id="myForm">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="city">City:</label><br>
+    <input type="text" id="city" name="city"><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <table border="1" id="output">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>City</th>
+    </tr>
+  </table>
+
+  <script>
+    const form = document.getElementById("myForm");
+    const table = document.getElementById("output");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); 
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const city = document.getElementById("city").value;
+
+      
+      const newRow = table.insertRow();
+      newRow.insertCell(0).innerText = name;
+      newRow.insertCell(1).innerText = email;
+      newRow.insertCell(2).innerText = city;
+
+     
+      form.reset();
+    });
+  </script>
+</body>
+</html>
